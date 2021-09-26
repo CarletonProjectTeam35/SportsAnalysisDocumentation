@@ -1,0 +1,88 @@
+
+
+%*************************************
+% A latex package to prepare a proposal for the National Science Foundation (NSF).
+% M.R. Hadizadeh
+% E-mail: mhadizadeh@gmail.com
+% August 2021
+%*************************************
+
+\documentclass{style/nsf}
+\graphicspath{{figs/}}
+\usepackage{float}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{amsmath}% bold math
+\usepackage{bm}% bold math
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{algorithmicx}
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\def\NoNumber#1{{\def\alglinenumber##1{}\State #1}\addtocounter{ALG@line}{-1}}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage{tcolorbox}
+\usepackage[final]{pdfpages}
+\usepackage{lipsum,multicol}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+
+\begin{document}
+
+
+% A. Cover Sheet
+% A number of the boxes contained on the Cover Sheet are
+% electronically pre-filled as part of the FastLane login process
+% Complete the rest of your info there
+
+% B. Project Summary
+\title{Indoor training: \newline How well are we mimicking the movements? }
+\newsection{B}
+\input{sections/summary}
+
+% C. Table of Contents 
+% A Table of Contents is automatically generated for the proposal by FastLane
+
+% D. Project Description
+\newpage\newsection{D}
+\input{sections/description}
+
+% E. References Cited
+\newpage\newsection{E}
+\renewcommand\refname{References Cited}
+\bibliography{sections/references}
+
+% F. Biographical Sketch(es)
+\newpage\newsection{F}
+\input{sections/bio}
+
+% G. Budget Justification
+\newpage\newsection{G}
+\input{sections/budget}
+
+%  H. Current and Pending Support
+\newpage\newsection{H}
+\input{sections/support}
+
+% I. Facilities, Equipment and Other Resources
+\newpage\newsection{I}
+\input{sections/resources}
+
+% J. Special Information and Supplementary Documentation
+\newpage\newsection{J}
+\input{sections/data}		% Data Management Plan (Required)
+
+% K. Mentoring Plan
+\newpage\newsection{K}
+\input{sections/mentoring} % Postdoc/Undergraduate Researcher Mentoring Plan (if applicable)
+
+
+\newpage\newsection{Attachments}
+\input{sections/attachments}
+
+\end{document}
