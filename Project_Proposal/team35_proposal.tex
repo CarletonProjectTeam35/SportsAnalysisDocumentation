@@ -7,82 +7,199 @@
 % August 2021
 %*************************************
 
-\documentclass{style/nsf}
-\graphicspath{{figs/}}
-\usepackage{float}
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{amsmath}% bold math
-\usepackage{bm}% bold math
-\usepackage{amssymb}
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=2.54cm,bottom=2.54cm,left=4cm,right=2.5cm,headheight=14pt]{geometry}
+\usepackage{graphicx}
+\usepackage[hidelinks,bookmarksnumbered]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{fancyhdr}
+\usepackage[calcwidth]{titlesec}
+\usepackage{chngcntr}
+\usepackage{bytefield}
 \usepackage{booktabs}
-\usepackage{boldline}
-\usepackage{algorithmicx}
-\usepackage{algorithm}% http://ctan.org/pkg/algorithms
-\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
-\def\NoNumber#1{{\def\alglinenumber##1{}\State #1}\addtocounter{ALG@line}{-1}}
-\usepackage{caption}
-\usepackage{blindtext}
-\usepackage{tcolorbox}
-\usepackage[final]{pdfpages}
-\usepackage{lipsum,multicol}
-\usepackage{xcolor}
-\usepackage{tikz}
+\usepackage[x11names]{xcolor}
 \usepackage{listings}
+\usepackage[section]{placeins}
+\usepackage[style=iso]{datetime2}
+\usepackage{pgf-umlsd}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{colortbl}
+\usepackage{caption}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage[toc]{appendix}
+\usepackage{cite}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\usepackage{pdflscape}
 
 
+
+\title{Indoor training: \newline How well are we mimicking the movements? }
+\author{Braden Hayes, Connor Judd, Drake Mcgillivray, Kate Delaney, Mario Shebib, Marko Majkic}
+
+
+
+\date{2021 October 22}
+
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+% Headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{SYSC4907 Project Proposal}
+\rhead{Team 35}
+\rfoot{\thepage}
+% More space around figures
+\setlength\intextsep{18pt}
+% Per section figure and table numbers
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% Colour links rather than putting a box around them
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+}
+
+% More space between table rows
+\renewcommand{\arraystretch}{1.2}
+
+% Section numbers in the margin
+\newcommand{\marginsecnumber}[1]{%
+    \makebox[0pt][r]{#1\hspace{6pt}}%
+}
+\titleformat{\section}
+    {\sffamily\Large\bfseries}
+    {\marginsecnumber\thesection}
+    {0pt}
+    {}
+\titleformat{\subsection}
+    {\sffamily\large\bfseries}
+    {\marginsecnumber\thesubsection}
+    {0pt}
+    {}
+\titleformat{\subsubsection}
+    {\sffamily\normalsize\bfseries}
+    {\marginsecnumber\thesubsubsection}
+    {0pt}
+    {}
 
 \begin{document}
+\frenchspacing
 
+\pagenumbering{Alph}
+\begin{titlepage}
+\centering
 
-% A. Cover Sheet
-% A number of the boxes contained on the Cover Sheet are
-% electronically pre-filled as part of the FastLane login process
-% Complete the rest of your info there
+\vspace*{\stretch{2}}
+{\Huge \sffamily Indoor Training: \newline How well are we mimicking the movements?}
 
-% B. Project Summary
-\title{Indoor training: \newline How well are we mimicking the movements? }
-\newsection{B}
-\input{sections/summary}
+\vspace{\stretch{2}}
 
-% C. Table of Contents 
-% A Table of Contents is automatically generated for the proposal by FastLane
+{\Huge \sffamily Project Proposal}
 
-% D. Project Description
-\newpage\newsection{D}
-\input{sections/description}
+\vspace{\stretch{1}}
+{\large \textbf{SYSC 4907}}
 
-% E. References Cited
-\newpage\newsection{E}
-\renewcommand\refname{References Cited}
-\bibliography{sections/references}
+{\large \textbf{Fall 2021/Winter 2022}}
 
-% F. Biographical Sketch(es)
-\newpage\newsection{F}
-\input{sections/bio}
+Leila Mostaço-Guidolin, Ph.D., P.Eng.
 
-% G. Budget Justification
-\newpage\newsection{G}
-\input{sections/budget}
+\vspace{\stretch{2}}
 
-%  H. Current and Pending Support
-\newpage\newsection{H}
-\input{sections/support}
+{\large \textbf{Team 35}}
 
-% I. Facilities, Equipment and Other Resources
-\newpage\newsection{I}
-\input{sections/resources}
+Braden Hayes
 
-% J. Special Information and Supplementary Documentation
-\newpage\newsection{J}
-\input{sections/data}		% Data Management Plan (Required)
+{\footnotesize 101112295}
 
-% K. Mentoring Plan
-\newpage\newsection{K}
-\input{sections/mentoring} % Postdoc/Undergraduate Researcher Mentoring Plan (if applicable)
+Connor Judd
 
+{\footnotesize 101109256}
 
-\newpage\newsection{Attachments}
-\input{sections/attachments}
+Drake Mcgillivray
 
+{\footnotesize 101104347}
+
+Kate Delaney
+
+{\footnotesize 101109712}
+
+Mario Shebib
+
+{\footnotesize 101035000}
+
+Marko Majkic
+
+{\footnotesize 101109409}
+
+\vspace{\stretch{2}}
+
+\end{titlepage}
+\tableofcontents
+
+% 1. Objective
+
+\newpage
+\begin{flushleft}
+\justifying
+\input{Project_Proposal/sections/2_objectives}
+%includes 2. Introduction
+
+% 3. Background
+
+\input{Project_Proposal/sections/3_background}
+
+% 4. Project Description
+
+\input{Project_Proposal/sections/4_plan}
+
+% 5. Team Background
+
+\input{Project_Proposal/sections/5_team_background}
+
+%  6. Group’s Collective Ability to Accomplish Project Objectives
+
+\input{Project_Proposal/sections/6_group_ability}
+
+%  7. Problem Solving Methods
+
+\input{Project_Proposal/sections/7_problem_solve_methods}
+
+%  8. Proposed Timetable
+
+\input{Project_Proposal/sections/8_timeline_milestones}
+
+%  9. Risk Mitigation
+
+\input{Project_Proposal/sections/9_risk_mitigation}
+
+%  10. Hardware, Software and Facility Requirements
+
+\input{Project_Proposal/sections/10_requirements}
+
+%  11. Roles and References
+\section{Roles}
+\input{Project_Proposal/sections/11_roles}
+\end{flushleft}
+\begin{landscape}
+
+\section*{Appendix}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{Project_Proposal/figs/projectproposalGantt.png}
+\caption{A Gantt Chart visualization of the timetable \ref{table:1}}
+\label{fig:Appendix}
+\end{figure}
+\end{landscape}
+\bibliographystyle{IEEEtran}
+\bibliography{Project_Proposal/refs}
 \end{document}
