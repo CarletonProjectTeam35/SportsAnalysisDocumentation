@@ -5,8 +5,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy_garden.graph import Graph, MeshLinePlot
 from datetime import datetime
-from pymongo import MongoClient
-from math import sin
+from math import exp
 
 
 class MyApp(App):
@@ -15,12 +14,12 @@ class MyApp(App):
         root_widget = BoxLayout(orientation='vertical')
 
         pressure_graph = Graph(xlabel='X', ylabel='Y', x_ticks_minor=5,
-                               x_ticks_major=25, y_ticks_major=1,
+                               x_ticks_major=25, y_ticks_minor=1,
                                y_grid_label=True, x_grid_label=True, padding=5,
                                x_grid=True, y_grid=True, xmin=-0, xmax=100, ymin=-1, ymax=1)
 
         simple_grid = GridLayout(cols=1, size_hint_y=2)
-        table_grid = GridLayout(cols=2, size_hint_y=2)
+        table_grid = GridLayout(cols=2, size_hint_y=1)
         left_grid = GridLayout(cols=1, size_hint_y=1)
         right_grid = GridLayout(cols=1, size_hint_y=1)
         left_row = TextInput(text='Left', readonly=True)
@@ -33,28 +32,65 @@ class MyApp(App):
         left_grid.add_widget(left_row)
         right_grid.add_widget(right_row)
 
-        # Left row buttons
-        for i in range(1, 4):
-            left_grid.add_widget(Button(text='Reading ' + str(i)))
+        l_button_1 = Button(text='l Reading ' + str(1))
+        l_button_2 = Button(text='l Reading ' + str(2))
+        l_button_3 = Button(text='l Reading ' + str(3))
+        l_button_4 = Button(text='l Reading ' + str(4))
+        left_grid.add_widget(l_button_1)
+        left_grid.add_widget(l_button_2)
+        left_grid.add_widget(l_button_3)
+        left_grid.add_widget(l_button_4)
+
         # right row buttons
-        for i in range(1, 4):
-            right_grid.add_widget(Button(text='Reading ' + str(i)))
+        r_button_1 = Button(text='r Reading ' + str(1))
+        r_button_2 = Button(text='r Reading ' + str(2))
+        r_button_3 = Button(text='r Reading ' + str(3))
+        r_button_4 = Button(text='r Reading ' + str(4))
+        right_grid.add_widget(r_button_1)
+        right_grid.add_widget(r_button_2)
+        right_grid.add_widget(r_button_3)
+        right_grid.add_widget(r_button_4)
 
-        def button_press(instance):
+        def btn_press(instance):
             try:
+                multiplier = 0.5
+                side = instance.text.split("_")[0]
+                if side == 'r':
 
-                data_length = 150
-                plot = MeshLinePlot(color=[1, 0, 0, 1])
-                custom_string = instance.text.split(" ")[1]
-                if isinstance(instance, left_grid):
-                    multiplier = 2
-                custom_value = multiplier * int(custom_string)
-                plot.points = [(x, sin(x, custom_value))
-                               for x in range(0, data_length)]
-                pressure_graph.add_plot(plot)
+                    multiplier = 1
+                    data_length = 150
+                    right_plot = MeshLinePlot(color=[1, side, 0, 1])
+                    pressure_graph.remove_plot(right_plot)
+                    pressure_graph.clear_buffer()
+                    custom_string = instance.text.split(" ")[2]
+                    custom_value = multiplier * int(custom_string)
+                    right_plot.points = [(x, exp(x/custom_value))
+                                         for x in range(0, data_length)]
+                    pressure_graph.add_plot(right_plot)
+                else:
+                    data_length = 150
+                    left_plot = MeshLinePlot(color=[1, side, 0, 1])
+                    pressure_graph.remove_plot(left_plot)
+                    pressure_graph.clear_buffer()
+                    custom_string = instance.text.split(" ")[2]
+                    custom_value = multiplier * int(custom_string)
+                    left_plot.points = [(x, exp(x/custom_value))
+                                        for x in range(0, data_length)]
+                    pressure_graph.add_plot(left_plot)
+                print(custom_string + str(multiplier))
             except SyntaxError:
                 print('Python syntax error!')
         root_widget.add_widget(simple_grid)
+
+        l_button_1.bind(on_press=btn_press)
+        l_button_2.bind(on_press=btn_press)
+        l_button_3.bind(on_press=btn_press)
+        l_button_4.bind(on_press=btn_press)
+
+        r_button_1.bind(on_press=btn_press)
+        r_button_2.bind(on_press=btn_press)
+        r_button_3.bind(on_press=btn_press)
+        r_button_4.bind(on_press=btn_press)
 
         return root_widget
 
