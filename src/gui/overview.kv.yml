@@ -7,10 +7,11 @@
     size_hint: .5, .5
     pos_hint: {'center_x': .5, 'center_y': .5}
     do_default_tab: False
-  
+    home_tab: Overview
     # Create tab 1
     TabbedPanelItem:
-        text: 'OverView'
+        text: 'Overview'
+        id : Overview
         Label:
             text: "First tab"
   
@@ -29,12 +30,12 @@
         RstDocument:
             text: '\n'.join(("How are you GFG's???"))
 
-     TabbedPanelItem:
+    TabbedPanelItem:
         text: 'Pressure Plate'
         RstDocument:
             text: '\n'.join(("How are you GFG's???"))
 
-     TabbedPanelItem:
+    TabbedPanelItem:
         text: 'Data History'
         RstDocument:
             text: '\n'.join(("How are you GFG's???"))
