@@ -1,0 +1,9 @@
+<Mylayout>
+  BoxLayout:
+    Label:
+      id: Skateing_label
+      text: "Skater mode"
+      
+    Switch:
+      Active: True
+      on_active: root.switch_click(self, self.active)

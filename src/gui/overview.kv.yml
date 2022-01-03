@@ -4,8 +4,8 @@
   
     # creating the size
     # and the alignment of the tab 
-    size_hint: .5, .5
-    pos_hint: {'center_x': .5, 'center_y': .5}
+    #size_hint: .5, .5
+   # pos_hint: {'center_x': .5, 'center_y': .5}
     do_default_tab: False
     home_tab: Overview
     # Create tab 1
@@ -14,10 +14,12 @@
         id : Overview
         Label:
             text: "First tab"
+            
   
     # Create 2nd tab
     TabbedPanelItem:
         text: 'EMG'
+        id: EMG
         BoxLayout:
             Label:
                 text: 'Press button'
@@ -33,7 +35,7 @@
     TabbedPanelItem:
         text: 'Pressure Plate'
         RstDocument:
-            text: '\n'.join(("How are you GFG's???"))
+            text: 'II'
 
     TabbedPanelItem:
         text: 'Data History'
