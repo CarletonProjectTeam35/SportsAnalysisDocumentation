@@ -32,24 +32,16 @@ class MyApp(App):
         left_grid.add_widget(left_row)
         right_grid.add_widget(right_row)
 
-        l_button_1 = Button(text='l Reading ' + str(1))
-        l_button_2 = Button(text='l Reading ' + str(2))
-        l_button_3 = Button(text='l Reading ' + str(3))
-        l_button_4 = Button(text='l Reading ' + str(4))
+        l_button_1 = Button(text='Left Foot Reading ')
+        
         left_grid.add_widget(l_button_1)
-        left_grid.add_widget(l_button_2)
-        left_grid.add_widget(l_button_3)
-        left_grid.add_widget(l_button_4)
+        
 
         # right row buttons
-        r_button_1 = Button(text='r Reading ' + str(1))
-        r_button_2 = Button(text='r Reading ' + str(2))
-        r_button_3 = Button(text='r Reading ' + str(3))
-        r_button_4 = Button(text='r Reading ' + str(4))
+        r_button_1 = Button(text='Right Foot Reading ' )
+        
         right_grid.add_widget(r_button_1)
-        right_grid.add_widget(r_button_2)
-        right_grid.add_widget(r_button_3)
-        right_grid.add_widget(r_button_4)
+       
 
         def btn_press(instance):
             try:
@@ -83,16 +75,9 @@ class MyApp(App):
         root_widget.add_widget(simple_grid)
 
         l_button_1.bind(on_press=btn_press)
-        l_button_2.bind(on_press=btn_press)
-        l_button_3.bind(on_press=btn_press)
-        l_button_4.bind(on_press=btn_press)
+        
 
         r_button_1.bind(on_press=btn_press)
-        r_button_2.bind(on_press=btn_press)
-        r_button_3.bind(on_press=btn_press)
-        r_button_4.bind(on_press=btn_press)
+       
 
         return root_widget
-
-
-MyApp().run()
