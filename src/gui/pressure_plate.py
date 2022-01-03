@@ -38,7 +38,7 @@ class MyApp(App):
         
 
         # right row buttons
-        r_button_1 = Button(text='Right Foot Reading ' )
+        r_button_1 = Button(text='Right Foot Reading ')
         
         right_grid.add_widget(r_button_1)
        
