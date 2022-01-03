@@ -9,7 +9,8 @@ from kivy.lang import Builder
 Builder.load_file('switch.kv.yml')
 # Create Tabbed class 
 class MyLayout(Widget):
-    pass
+    def switch_click(self, switchObject, SwitchValue):
+        print(SwitchValue)
    
 # create App class
 class SwitchApplication(App):
@@ -18,4 +19,4 @@ class SwitchApplication(App):
   
 # run the App
 if __name__ == '__main__':
-    MyLayout().run()
+    SwitchApplication().run()
