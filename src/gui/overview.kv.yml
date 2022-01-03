@@ -10,13 +10,13 @@
   
     # Create tab 1
     TabbedPanelItem:
-        text: 'Tab 1'
+        text: 'OverView'
         Label:
             text: "First tab"
   
     # Create 2nd tab
     TabbedPanelItem:
-        text: 'Tab 2'
+        text: 'EMG'
         BoxLayout:
             Label:
                 text: 'Press button'
@@ -25,6 +25,16 @@
   
     # Create 3rd tab
     TabbedPanelItem:
-        text: 'Tab 3'
+        text: 'Gyro'
+        RstDocument:
+            text: '\n'.join(("How are you GFG's???"))
+
+     TabbedPanelItem:
+        text: 'Pressure Plate'
+        RstDocument:
+            text: '\n'.join(("How are you GFG's???"))
+
+     TabbedPanelItem:
+        text: 'Data History'
         RstDocument:
             text: '\n'.join(("How are you GFG's???"))

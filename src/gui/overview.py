@@ -1,16 +1,11 @@
 from kivy.app import App  
-       
-
-
-from kivy.uix.tabbedpanel import TabbedPanel
-  
-
+from kivy.uix.tabbedpanel import TabbedPanel 
 from kivy.uix.widget import Widget 
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 
 
-Builder.load_file('overview.kv')
+Builder.load_file('overview.kv.yml')
 # Create Tabbed class 
 class Tab(TabbedPanel):
     pass
