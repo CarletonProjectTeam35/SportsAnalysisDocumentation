@@ -1,9 +1,16 @@
 <Mylayout>:
   BoxLayout:
+    orientation: "vertical"
+    size: root.width, root.height
+
     Label:
-      id: Skateing_label
+      id: my_label
+      font_size: 32
       text: "Skater mode"
       
     Switch:
+      id: my_switch
       active: True
+      font_size: 32
       on_active: root.switch_click(self, self.active)
+    

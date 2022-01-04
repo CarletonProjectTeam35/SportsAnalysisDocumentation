@@ -10,8 +10,11 @@ Builder.load_file('switch.kv.yml')
 # Create Tabbed class 
 class MyLayout(Widget):
     def switch_click(self, switchObject, SwitchValue):
-        print(SwitchValue)
-   
+        if(SwitchValue):
+            self.ids.my_label.text = "You are now in Skater mode"
+        else:
+            self.ids.my_label.text = "You are in Shooter mode"
+            ##self.ids.myswitch.something = place holder value to switch between data
 # create App class
 class SwitchApplication(App):
     def build(self):
