@@ -1,12 +1,9 @@
-
-
 %*************************************
 % A latex package to prepare a proposal for the National Science Foundation (NSF).
 % M.R. Hadizadeh
 % E-mail: mhadizadeh@gmail.com
 % August 2021
 %*************************************
-
 \documentclass[11pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[top=2.54cm,bottom=2.54cm,left=4cm,right=2.5cm,headheight=14pt]{geometry}
@@ -36,6 +33,8 @@
 \usepackage{indentfirst}
 \usepackage{ragged2e}
 \usepackage{pdflscape}
+\usepackage{float}
+\usepackage{subcaption}
 
 
 
@@ -52,7 +51,7 @@
 % Headers and footers
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{SYSC4907 Project Proposal}
+\lhead{SYSC4907 Progress Report}
 \rhead{Team 35}
 \rfoot{\thepage}
 % More space around figures
@@ -104,7 +103,7 @@
 
 \vspace{\stretch{2}}
 
-{\Huge \sffamily Project Proposal}
+{\Huge \sffamily Progress Report}
 
 \vspace{\stretch{1}}
 {\large \textbf{SYSC 4907}}
@@ -146,60 +145,68 @@ Marko Majkic
 \end{titlepage}
 \tableofcontents
 
-% 1. Objective
+% 1. Introduction/Abstract
 
 \newpage
 \begin{flushleft}
 \justifying
-\input{Project_Proposal/sections/2_objectives}
-%includes 2. Introduction
+\input{Progress_Report/sections/2_introduction_abstract}
 
-% 3. Background
+% 3. Dev Plans
 
-\input{Project_Proposal/sections/3_background}
+\input{Progress_Report/sections/3_development_plans}
 
-% 4. Project Description
 
-\input{Project_Proposal/sections/4_plan}
+% 5. Testing plans
+\section{Development Activities}
+\input{Progress_Report/sections/4_testing_plans}
 
-% 5. Team Background
+%  6. Haredware Development
 
-\input{Project_Proposal/sections/5_team_background}
+\input{Progress_Report/sections/5_hardware_development}
 
-%  6. Group’s Collective Ability to Accomplish Project Objectives
+%  7. Software Development
 
-\input{Project_Proposal/sections/6_group_ability}
+\input{Progress_Report/sections/6_software_development}
 
-%  7. Problem Solving Methods
+%  8. Next Steps
 
-\input{Project_Proposal/sections/7_problem_solve_methods}
+\input{Progress_Report/sections/7_next_steps}
 
-%  8. Proposed Timetable
+%  9. Updated Roles
 
-\input{Project_Proposal/sections/8_timeline_milestones}
+\input{Progress_Report/sections/8_updated_roles}
 
-%  9. Risk Mitigation
+%  10. Conclusion
 
-\input{Project_Proposal/sections/9_risk_mitigation}
+\input{Progress_Report/sections/9_conclusion}
 
-%  10. Hardware, Software and Facility Requirements
+%  11. Appendix References
 
-\input{Project_Proposal/sections/10_requirements}
-
-%  11. Roles and References
-\section{Roles}
-\input{Project_Proposal/sections/11_roles}
 \end{flushleft}
 \begin{landscape}
 
 \section*{Appendix}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{Project_Proposal/figs/projectproposalGantt.png}
-\caption{A Gantt Chart visualization of the timetable \ref{table:1}}
+\includegraphics[scale=0.4]{Progress_Report/figs/progressreportGantt.png}
+\caption{A Gantt Chart visualization of the in-completed timetable that will be finished for submission \ref{table:1}}
 \label{fig:Appendix}
 \end{figure}
 \end{landscape}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.1]{Progress_Report/figs/Loadcell_sensors.jpg}
+\caption{Load cell sensors being tested after being wired in series}
+\label{fig:loadcell}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.1]{Progress_Report/figs/SensorPlacement.jpg}
+\caption{Testing muscle placement to get proper readings}
+\label{fig:sensorplacement}
+\end{figure}
 \bibliographystyle{IEEEtran}
-\bibliography{Project_Proposal/refs}
+\bibliography{Progress_Report/refs}
 \end{document}
