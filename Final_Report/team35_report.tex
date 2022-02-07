@@ -90,6 +90,14 @@
     {\marginsecnumber\thesubsubsection}
     {0pt}
     {}
+% Draft watermark
+\usepackage{eso-pic,graphicx}
+\AddToShipoutPicture*{%
+    \AtTextCenter{%
+        \makebox(0,0)[c]{\resizebox{\textwidth}{!}{%
+        \rotatebox{45}{\textsf{\textbf{\color{lightgray}DRAFT}}}}}
+    }
+}
 
 \begin{document}
 \frenchspacing
