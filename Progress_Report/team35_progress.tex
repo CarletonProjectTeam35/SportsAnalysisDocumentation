@@ -35,7 +35,7 @@
 \usepackage{pdflscape}
 \usepackage{float}
 \usepackage{subcaption}
-
+\usepackage{pdfpages}
 
 
 \title{Indoor training: \newline How well are we mimicking the movements? }
@@ -187,10 +187,10 @@ Marko Majkic
 \begin{landscape}
 
 \section*{Appendix}
-
+%make it more readable gantt chart.
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.4]{Progress_Report/figs/progressreportGantt.png}
+\includegraphics[scale=0.25]{Progress_Report/figs/progressreportGantt-Page-1.drawio(1).png}
 \caption{A Gantt Chart visualization of the in-completed timetable that will be finished for submission \ref{table:1}}
 \label{fig:Appendix}
 \end{figure}
@@ -203,10 +203,20 @@ Marko Majkic
 \end{figure}
 \begin{figure}[htbp]
 \centering
+\includegraphics[scale=0.1]{Progress_Report/figs/Loadcell_sensors_sole.jpg}
+\caption{Load cell sensors place in the insoles prepared for testing}
+\label{fig:loadcell}
+\end{figure}
+\begin{figure}[htbp]
+\centering
 \includegraphics[scale=0.1]{Progress_Report/figs/SensorPlacement.jpg}
-\caption{Testing muscle placement to get proper readings}
+\caption{Testing muscle placement to get proper readings} %Include what type of hardware are being used
 \label{fig:sensorplacement}
 \end{figure}
+\newpage
+\subsection*{Project Proposal}
+\includepdf[pages=-,pagecommand=\thispagestyle{plain}]{pdfs/Project_Proposal.pdf}
+%make sure it's IEEE standard format
 \bibliographystyle{IEEEtran}
 \bibliography{Progress_Report/refs}
 \end{document}
